@@ -5,7 +5,7 @@ const inputPassUno = document.querySelector("#passwordUno");
 const inputPassDos = document.querySelector("#passwordDos");
 const inputBtn = document.querySelector("#btn");
 
-console.log(inputPassUno)
+let parrafo = document.createElement("p")
 
 
 function onSubmit(e) {
@@ -16,9 +16,7 @@ function onSubmit(e) {
     const inputPassUnoValue = inputPassUno.value;
     const inputPassDosValue = inputPassDos.value;
 
-    console.log(inputPassUno)
 
-  
     const user = {
       nombre, //si la key y la value se llaman igual solo se pone una
       correo: emailValue,
@@ -28,24 +26,21 @@ function onSubmit(e) {
     };
 
     localStorage.setItem("usuario", JSON.stringify(user)); 
-    console.log(user)
+    // console.log(user)
+
+    // parrafo.innerText = ""//limpiamos lo que había escrito en el DOM
+        pintarPantalla()
 
 }
+
+function pintarPantalla (){
+        document.body.appendChild(parrafo)
+        const userGuardado = JSON.parse(localStorage.getItem("usuario"));
+        parrafo.innerText = `Nombre: ${userGuardado.nombre}  Correo: ${userGuardado.correo}  Password: ${userGuardado.password}`
+      }
 
 
 inputBtn.addEventListener("click", onSubmit);
 
-//     --------------
 
-//     const objeto = { nombre, email, mensaje };
-//     localStorage.setItem("user", JSON.stringify(objeto));
-  
-//     parrafo.innerText = ""//limpiamos lo que había escrito en el DOM
-//     pintarPantalla()
-//   }
-//   function pintarPantalla (){
-//     document.body.appendChild(parrafo)
-//     const user = JSON.parse(localStorage.getItem("user"));
-//     parrafo.innerText = 'Nombre: '+user.nombre +' Correo: '+ user.email +' Mensaje: '+user.mensaje
-//   }
-//   boton.addEventListener("click", onSubmit)
+
