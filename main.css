@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+body{
+    margin: 20px;
+}
+#myForm {
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px;
+    gap: 5px;
+}
