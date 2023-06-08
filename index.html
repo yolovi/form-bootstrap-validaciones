@@ -41,7 +41,6 @@
 
     <h4>Crea tu usuario</h4>
 
-
     <form id="myForm">
         <div class="mb-3">
             <label for="InputName" class="form-label">Nombre</label>
@@ -55,6 +54,7 @@
             <label for="InputPassword1" class="form-label">Ingresa tu password</label>
             <input type="password" class="form-control" id="passwordUno" placeholder="Escribe tu password">
             <input type="password" class="form-control" id="passwordDos" placeholder="Repite tu password">
+            <span class="descripcion">Password must be between 4 and 8 digits long and include at least one numeric digit.</span>
         </div>
  
 
@@ -64,8 +64,11 @@
 
     </form>
 
-    <div id="contenedor">
+    <div id="msg">
+    </div>
 
+    <div id="contenedor">
+  
     </div>
 
     <script src="main.js"></script>

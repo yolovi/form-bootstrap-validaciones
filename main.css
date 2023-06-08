@@ -18,3 +18,20 @@ body{
     margin: 20px 20px;
     gap: 5px;
 }
+
+
+#contenedor{
+    color: blue;
+}
+.p-success{
+    color: green;
+}
+
+.p-error{
+    color: red;
+}
+
+.descripcion {
+    font-size: 0.8rem;
+    color: grey;
+}
