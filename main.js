@@ -50,7 +50,6 @@ function validar() {
 
 }
 
-
 // funcion que se ejecutara con el boton enviar. Esta funcion previene la accion por defecto de boton y ademas recoge los valores de los inputs que rellene el usuario para despues almacenarlos en el local storage.
 
 function onSubmit(e) {
@@ -80,41 +79,44 @@ function onSubmit(e) {
    usuariosForm.push(user);
    //guarda el array usuariosForm en el local storage
    localStorage.setItem("formulario", JSON.stringify(usuariosForm));
+   setTimeout(() => {
+    window.location.href = "usuarios.html";
+
+  }, 3000);
+  
  }
 
+}
 
-  //crea un objeto vacio
-  // contenedor.innerHTML = ``;
-  // crearUsuario();
+
+// -----------------------
+
+// BOOTSTRAP CARDS 
+
+const datosUsuario = document.getElementById("datos-usuario");
+
+function pintarUsuarios() {
+
+  let usuarios = JSON.parse(localStorage.getItem("formulario"));
+  let boton = document.getElementById('boton');
+  boton.classList.add('hidden');
+  if (usuarios) {
+    for (const elemento of usuarios) {
+            datosUsuario.innerHTML += `<div class="card" style="width: 18rem;">
+            <img src="https://picsum.photos/200/200" class="card-img-top" alt="imagen avatar">
+            <div class="card-body">
+                <h5 class="card-title">Datos del usuario</h5>
+                <div id="datos-usuario">
+                    <p> Nombre : ${elemento.nombre}</p>
+                    <p> Email : ${elemento.correo}</p>
+                </div>
+          </div>`
+          }
+  }
+}
+
+
   
-}
-
-let usuario
-
-const crearUsuario = () => {
-  const formulario = JSON.parse(localStorage.getItem("formulario"));
-}
-
-
-
-
-
-
-// const pintarEnPantalla = function () {
-//   //recoge lo que haya en "formulario" del local storage
-//   const formulario = JSON.parse(localStorage.getItem("formulario"));
-
-//   if (formulario === null || formulario.length === 0) {
-//     contenedor.innerHTML = `<p>Rellena el formulario</p>`;
-//   } else {
-//     //crea un parrafo para cada usuario dentro del div id contenedor y lo rellena con los datos recogidos del "formulario"
-//     for (const elemento of formulario) {
-//       contenedor.innerHTML += `<p>Mi nombre es ${elemento.nombre}, mi email es ${elemento.correo} <button onclick = "deleteOne('${elemento.correo}')">Borrar elemento</button></p>`;
-//     }
-//   }
-// };
-
-// funcion para borrar todo el local storage con el boton borrar todos local
 function clearLocal() {
   localStorage.clear();
 }
@@ -122,22 +124,6 @@ function clearLocal() {
 // Botón borrar solo un elemento
 function deleteOne(laclave) {
   let nuevo = JSON.parse(localStorage.getItem("formulario"));
-
-  // Crea un array vacio para utilizarlo en el bucle for. Después de que el bucle haya recorrido todos los elementos de nuevo, el array filtrado contendrá solo aquellos elementos cuya propiedad correo sea diferente al valor de laclave
-
-  //   let filtrado = [];
-
-  //   for (elemento of nuevo) {
-  //     console.log(elemento.correo, laclave);
-  //     if (elemento.correo !== laclave) {
-  //       filtrado.push(elemento);
-  //     }
-  //   }
-
-  //   Almacena como string en el local storage los elementos del paso anterior, el filtrado.
-  //   localStorage.setItem("formulario", JSON.stringify(filtrado));
-  //   contenedor.innerHTML = ``;
-  //   pintarEnPantalla();
 }
 
 btnClear.addEventListener("click", clearLocal);

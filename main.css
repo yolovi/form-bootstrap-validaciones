@@ -20,19 +20,20 @@ body{
 }
 
 
-#contenedor{
-    color: blue;
-}
-.p-success{
-    color: green;
+.flex-div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px;
 }
 
-.p-error{
-    color: red;
-}
+
 
 .descripcion {
     font-size: 0.8rem;
     color: grey;
 }
 
+.hidden {
+    display: none;
+  }
