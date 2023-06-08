@@ -26,17 +26,17 @@ function validar() {
     inputPassUno.value === "" ||
     inputPassDos.value === ""
   ) {
-    msg.innerHTML = `<p class= "p-error" >"Please enter all fields"</p> `;
+    msg.innerHTML = `<p class="alert alert-warning" role="alert" >"Please enter all fields"</p> `;
   } else if(email.test(inputEmail.value) !== true){
-    msg.innerHTML = `<p class= "p-error" >Please enter a valid email</p> `
+    msg.innerHTML = `<p class="alert alert-warning" role="alert" >Please enter a valid email</p> `
   }
   else if (password.test(inputPassUno.value) !== true) {
-    msg.innerHTML =  `<p class= "p-error">"Please enter a valid password"</p>`    ;
+    msg.innerHTML =  `<p class="alert alert-warning" role="alert">"Please enter a valid password"</p>`    ;
   } else if (inputPassUno.value !== inputPassDos.value ){
-    msg.innerHTML =  `<p class= "p-error">"It must be the same password"</p>`
+    msg.innerHTML =  `<p class="alert alert-warning" role="alert">"It must be the same password"</p>`
   }
   else {
-    msg.innerHTML = `<p class= "p-success">"Usuario creado correctamente"</p>`;
+    msg.innerHTML = `<p class="alert alert-success" role="alert">"Usuario creado correctamente"</p>`;
   }
   setTimeout(() => {
     msg.innerHTML = "";
