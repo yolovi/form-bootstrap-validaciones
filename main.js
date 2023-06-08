@@ -89,9 +89,7 @@ function onSubmit(e) {
 }
 
 
-// -----------------------
-
-// BOOTSTRAP CARDS 
+// BOOTSTRAP CARDS ----------------------
 
 const datosUsuario = document.getElementById("datos-usuario");
 
@@ -115,17 +113,16 @@ function pintarUsuarios() {
   }
 }
 
-
+// -----------------------
   
 function clearLocal() {
   localStorage.clear();
 }
 
-// Botón borrar solo un elemento
-function deleteOne(laclave) {
-  let nuevo = JSON.parse(localStorage.getItem("formulario"));
-}
+// // Botón borrar solo un elemento
+// function deleteOne(laclave) {
+//   let nuevo = JSON.parse(localStorage.getItem("formulario"));
+// }
 
 btnClear.addEventListener("click", clearLocal);
-
 boton.addEventListener("click", onSubmit);
