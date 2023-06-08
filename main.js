@@ -14,11 +14,15 @@ function validar() {
   const password = /(^(?=.*\d).{4,8}$)/;
   // Password must be between 4 and 8 digits long and include at least one numeric digit.
   // Matches1234 | asdf1234 | asp123
-
+  
   const email = /[\w-]+@([\w-]+\.)+[\w-]+/;
   // Description: simple email validator expression
   // Matches  joe@aol.com | a@b.c
   // Non-Matches	asdf | 1234
+  
+  setTimeout(() => {
+    msg.innerHTML = "";
+  }, 3000);
 
   if (
     inputNombre.value === "" ||
@@ -27,20 +31,23 @@ function validar() {
     inputPassDos.value === ""
   ) {
     msg.innerHTML = `<p class="alert alert-warning" role="alert" >"Please enter all fields"</p> `;
+    return false
   } else if(email.test(inputEmail.value) !== true){
-    msg.innerHTML = `<p class="alert alert-warning" role="alert" >Please enter a valid email</p> `
+    msg.innerHTML = `<p class="alert alert-warning" role="alert" >Please enter a valid email</p> `;
+    return false
   }
   else if (password.test(inputPassUno.value) !== true) {
-    msg.innerHTML =  `<p class="alert alert-warning" role="alert">"Please enter a valid password"</p>`    ;
+    msg.innerHTML =  `<p class="alert alert-warning" role="alert">"Please enter a valid password"</p>`;
+    return false
   } else if (inputPassUno.value !== inputPassDos.value ){
-    msg.innerHTML =  `<p class="alert alert-warning" role="alert">"It must be the same password"</p>`
+    msg.innerHTML =  `<p class="alert alert-warning" role="alert">"It must be the same password"</p>`;
+    return false
   }
   else {
     msg.innerHTML = `<p class="alert alert-success" role="alert">"Usuario creado correctamente"</p>`;
+    return true
   }
-  setTimeout(() => {
-    msg.innerHTML = "";
-  }, 3000);
+
 }
 
 
@@ -61,21 +68,37 @@ function onSubmit(e) {
     passwordDos: inputPassDosValue,
   };
 
-  validar();
-  localStorage.setItem("usuario", JSON.stringify(user));
+  // almaceno el resultado del return de la funcion validar en la variable validado
+  let validado = validar()
 
-  // crea usuarios form a array vacio o recoge lo del formulario(se van acumulando en el array en cada push)
-  let usuariosForm = JSON.parse(localStorage.getItem("formulario")) || [];
-  usuariosForm.push(user);
+  // comprueba si validado es true ejecuta la accion que es crear y guardar en una array
+  if (validado) {
+    //almacena en una string en local
+   localStorage.setItem("usuario", JSON.stringify(user));
+   // crea usuarios form a array vacio o recoge lo del formulario(se van acumulando en el array en cada push)
+   let usuariosForm = JSON.parse(localStorage.getItem("formulario")) || [];
+   usuariosForm.push(user);
+   //guarda el array usuariosForm en el local storage
+   localStorage.setItem("formulario", JSON.stringify(usuariosForm));
+ }
 
-  //guarda el array usuariosForm en el local storage
-  localStorage.setItem("formulario", JSON.stringify(usuariosForm));
 
   //crea un objeto vacio
   // contenedor.innerHTML = ``;
-
-  // pintarEnPantalla();
+  // crearUsuario();
+  
 }
+
+let usuario
+
+const crearUsuario = () => {
+  const formulario = JSON.parse(localStorage.getItem("formulario"));
+}
+
+
+
+
+
 
 // const pintarEnPantalla = function () {
 //   //recoge lo que haya en "formulario" del local storage
