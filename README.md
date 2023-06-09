@@ -68,13 +68,17 @@ Bootstrap 5 es una de las versiones recientemente lanzadas del Framework Bootstr
 - Extensible. ...
 - Personalización.
 
+## :eslabón: Enlace para la presentacion
+[Click aqui](https://github.com/yolovi/bootstrap-validaciones/blob/main/assets/Investigacion.txt)
+Investigacion.txt
 ## Proyecto 
 
 🔗
+[GitHub](https://github.com/yolovi/form-bootstrap-validaciones.git)
 
-[GitHub](https://github.com/victorcodigos/bootstrap-validaciones/blob/main/index.html)
 --
-Trabajo hecho con [Yolanda](https://github.com/yolovi) woman in tech 💪
+Trabajo hecho con [Vicotr](https://github.com/victorcodigos) man in tech 💪
+
 
 
 

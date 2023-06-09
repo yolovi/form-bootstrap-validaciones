@@ -19,15 +19,12 @@ body{
     gap: 5px;
 }
 
-
 .flex-div {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin: 20px;
 }
-
-
 
 .descripcion {
     font-size: 0.8rem;
